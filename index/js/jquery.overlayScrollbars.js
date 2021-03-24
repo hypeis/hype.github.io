@@ -239,7 +239,11 @@
                         event.returnValue = false;
                 },
 
-                
+                /**
+                 * Gets the pageX and pageY values of the given mouse event.
+                 * @param event The mouse event of which the pageX and pageX shall be got.
+                 * @returns {{x: number, y: number}} x = pageX value, y = pageY value.
+                 */
                 page: function(event) {
                     event = event.originalEvent || event;
 
@@ -502,7 +506,14 @@
 
                     _template: convert(true),
 
-                   
+                    /**
+                     * Validates the passed object by the passed template.
+                     * @param obj The object which shall be validated.
+                     * @param template The template which defines the allowed values and types.
+                     * @param writeErrors True if errors shall be logged to the console.
+                     * @param diffObj If a object is passed then only valid differences to this object will be returned.
+                     * @returns {{}} A object which contains two objects called "default" and "prepared" which contains only the valid properties of the passed original object and discards not different values compared to the passed diffObj.
+                     */
                     _validate: function(obj, template, writeErrors, diffObj) {
                         var validatedOptions = {};
                         var validatedOptionsPrepared = {};
@@ -3886,7 +3897,11 @@
                     element2[action](className);
                 }
 
-                
+                /**
+                 * Returns a object which is used for fast access for specific variables.
+                 * @param isHorizontal True if the horizontal scrollbar vars shall be accessed, false if the vertical scrollbar vars shall be accessed.
+                 * @returns {{wh: string, WH: string, lt: string, _wh: string, _lt: string, t: *, h: *, c: {}, s: *}}
+                 */
                 function getScrollbarVars(isHorizontal) {
                     return {
                         _width_height: isHorizontal ? _strWidth : _strHeight,
@@ -4060,7 +4075,14 @@
                     targetCSSObject[prefix + _strLeft] = values[3];
                 }
 
-               
+                /**
+                 * Gets the "top, right, bottom, left" CSS properties of the CSS property with the given prefix from the host element.
+                 * @param prefix The prefix of the "top, right, bottom, left" css properties. (example: 'padding-' is a valid prefix)
+                 * @param suffix The suffix of the "top, right, bottom, left" css properties. (example: 'border-' is a valid prefix with '-width' is a valid suffix)
+                 * @param zeroX True if the x axis shall be 0.
+                 * @param zeroY True if the y axis shall be 0.
+                 * @returns {{}} The object which contains the numbers of the read CSS properties.
+                 */
                 function getTopRightBottomLeftHost(prefix, suffix, zeroX, zeroY) {
                     suffix = suffix || _strEmpty;
                     prefix = prefix || _strEmpty;
@@ -4136,7 +4158,10 @@
                         appendClasses(_oldClassName, withOldClassNameOption), 'g');
                 }
 
-                
+                /**
+                 * Calculates the host-elements inverted scale. (invertedScale = 1 / scale)
+                 * @returns {{x: number, y: number}} The scale of the host-element.
+                 */
                 function getHostElementInvertedScale() {
                     var rect = _paddingElementNative[LEXICON.bCR]();
                     return {
@@ -4194,7 +4219,10 @@
                     return isNaN(num) ? 0 : num;
                 }
 
-                
+                /**
+                 * Gets several information of the textarea and returns them as a object or undefined if the browser doesn't support it.
+                 * @returns {{cursorRow: Number, cursorCol, rows: Number, cols: number, wRow: number, pos: number, max : number}} or undefined if not supported.
+                 */
                 function getTextareaInfo() {
                     //read needed values
                     var textareaCursorPosition = _targetElementNative.selectionStart;
@@ -4639,7 +4667,17 @@
                  * @param duration The duration of the scroll animation, OR a jQuery animation configuration object.
                  * @param easing The animation easing.
                  * @param complete The animation complete callback.
-                 
+                 * @returns {{
+                 *   position: {x: number, y: number},
+                 *   ratio: {x: number, y: number},
+                 *   max: {x: number, y: number},
+                 *   handleOffset: {x: number, y: number},
+                 *   handleLength: {x: number, y: number},
+                 *   handleLengthRatio: {x: number, y: number}, t
+                 *   rackLength: {x: number, y: number},
+                 *   isRTL: boolean,
+                 *   isRTLNormalized: boolean
+                 *  }}
                  */
                 _base.scroll = function(coordinates, duration, easing, complete) {
                     if (arguments.length === 0 || coordinates === undefined) {
@@ -5036,7 +5074,11 @@
                     return _base;
                 };
 
-               
+                /**
+                 * Returns all relevant elements.
+                 * @param elementName The name of the element which shall be returned.
+                 * @returns {{target: *, host: *, padding: *, viewport: *, content: *, scrollbarHorizontal: {scrollbar: *, track: *, handle: *}, scrollbarVertical: {scrollbar: *, track: *, handle: *}, scrollbarCorner: *} | *}
+                 */
                 _base.getElements = function(elementName) {
                     var obj = {
                         target: _targetElementNative,
@@ -5059,7 +5101,11 @@
                     return type(elementName) == TYPES.s ? getObjectPropVal(obj, elementName) : obj;
                 };
 
-                
+                /**
+                 * Returns a object which describes the current state of this instance.
+                 * @param stateProperty A specific property from the state object which shall be returned.
+                 * @returns {{widthAuto, heightAuto, overflowAmount, hideOverflow, hasOverflow, contentScrollSize, viewportSize, hostSize, autoUpdate} | *}
+                 */
                 _base.getState = function(stateProperty) {
                     function prepare(obj) {
                         if (!FRAMEWORK.isPlainObject(obj))
@@ -5094,7 +5140,11 @@
                     return type(stateProperty) == TYPES.s ? getObjectPropVal(obj, stateProperty) : obj;
                 };
 
-                
+                /**
+                 * Gets all or specific extension instance.
+                 * @param extName The name of the extension from which the instance shall be got.
+                 * @returns {{}} The instance of the extension with the given name or undefined if the instance couldn't be found.
+                 */
                 _base.ext = function(extName) {
                     var result;
                     var privateMethods = _extensionsPrivateMethods.split(' ');
@@ -5113,7 +5163,12 @@
                     return result;
                 };
 
-                
+                /**
+                 * Adds a extension to this instance.
+                 * @param extName The name of the extension which shall be added.
+                 * @param extensionOptions The extension options which shall be used.
+                 * @returns {{}} The instance of the added extension or undefined if the extension couldn't be added properly.
+                 */
                 _base.addExt = function(extName, extensionOptions) {
                     var registeredExtensionObj = _plugin.extension(extName);
                     var instance;
