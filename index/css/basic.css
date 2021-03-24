@@ -1,0 +1,274 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    padding: 0;
+    margin: 0;
+    /*list-style-type:none;*/
+}
+
+a,
+img {
+    outline: none;
+    /* for Firefox */
+    hlbr: expression(this.onFocus=this.blur());
+    /* for IE */
+}
+
+img,
+div {
+    border: 0px;
+}
+
+input,
+textarea {
+    outline: none
+}
+
+/*消除chrome黃色框*/
+
+textarea {
+    resize: none
+}
+
+/*不要縮放*/
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+a:link {
+    color: #ff2045;
+}
+
+a:visited {
+    color: #ff2045;
+}
+
+a:hover {
+    color: #d7003d;
+}
+
+a:active {
+    color: #d7003d;
+}
+
+body {
+    font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+    word-wrap: break-word;
+    font-size: 15px;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tas {
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+#allcontent {
+    position: relative;
+    width: 100%;
+    min-width: 1050px;
+    max-width: 2000px;
+    height: 100vh;
+    min-height: 700px;
+    max-height: 980px;
+    /*background-color:#35335a;*/
+}
+
+#content {
+    position: relative;
+    width: 100%;
+}
+
+/* nav */
+
+#navbox {
+    position: fixed;
+    height: 40px;
+    top: 2px;
+    right: 0;
+    z-index: 16;
+    text-align: right;
+}
+
+#navbox a {
+    position: relative;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 100% auto;
+}
+
+#navbox a:hover {
+    background-position: 0% 100%;
+}
+
+.nav1 {
+    width: 107px;
+    background-image: url(../images/nav_01.png);
+}
+
+.nav2 {
+    width: 102px;
+    background-image: url(../images/nav_02.png);
+}
+
+.nav3 {
+    width: 102px;
+    background-image: url(../images/nav_03.png);
+}
+
+.nav4 {
+    width: 119px;
+    background-image: url(../images/nav_04.png);
+}
+
+.nav5 {
+    width: 50px;
+    background-image: url(../images/nav_05.png);
+}
+
+/* Copyright */
+
+#cy {
+    position: absolute;
+    /*fixed*/
+    width: 100%;
+    height: 5px;
+    /*66*/
+    cursor: pointer;
+    background-image: url(../images/cy.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    bottom: 0;
+    /*-61px*/
+    left: 0;
+    z-index: 16;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+.cyop {
+    position: absolute;
+    width: 24px;
+    height: 26px;
+    /*36*/
+    display: block;
+    cursor: pointer;
+    background-image: url(../images/cyop.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    top: -22px;
+    right: 5%;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+#cy:hover {
+    height: 66px;
+    /*bottom:0;*/
+}
+
+/* loading */
+
+#loo {
+    position: absolute;
+    width: 50px;
+    /*32*/
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    background-color: #000;
+    background-image: url(../images/loading.gif);
+    border-radius: 99px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    overflow: hidden;
+}
+
+#bacc {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 15;
+    /*background-color:rgba(0,0,0,.1);.9*/
+    background-image: url(../images/ba.png);
+}
+
+@media screen and (min-height:980px) {
+    /**/
+    #cy {
+        height: 66px;
+        bottom: -66px;
+    }
+    .cyop {
+        display: none;
+    }
+}
+
+@media screen and (max-height:750px) {
+    /* nav */
+    #navbox {
+        height: 30px;
+        top: 2px;
+    }
+    #navbox a {
+        height: 30px;
+    }
+    .nav1 {
+        width: 80px;
+    }
+    .nav2 {
+        width: 77px;
+    }
+    .nav3 {
+        width: 77px;
+    }
+    .nav4 {
+        width: 89px;
+    }
+    .nav5 {
+        width: 38px;
+    }
+}

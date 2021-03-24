@@ -1,0 +1,166 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo {
+    position: absolute;
+    width: 215px;
+    height: 160px;
+    display: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-image: url(../images/logo.png);
+    background-size: 100% auto;
+    top: 0;
+    left: 0;
+    z-index: 16;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+#mubox {
+    position: absolute;
+    /*width:100%;*/
+    width: 1000px;
+    height: 116px;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -500px;
+    text-align: center;
+    z-index: 16;
+}
+
+#mubox>.mu,
+#mubox>.ms,
+#mubox>.mh {
+    position: relative;
+    display: inline-block;
+    height: 116px;
+    margin: -2px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+#mubox>.ms {
+    width: 14px;
+    background-position: 0% 50%;
+    background-image: url(../images/ms.png);
+}
+
+#mubox>.mh {
+    cursor: pointer;
+    width: 99px;
+    background-image: url(../images/mu-h.png);
+}
+
+#mubox>.mu {
+    width: 116px;
+    cursor: pointer;
+}
+
+#mubox>.mh:hover,
+#mubox>.mu:hover,
+.mon {
+    background-position: 0% 100%;
+}
+
+#mubox>.m1 {
+    background-image: url(../images/mu1.png);
+}
+
+#mubox>.m2 {
+    background-image: url(../images/mu2.png);
+}
+
+#mubox>.m3 {
+    background-image: url(../images/mu8.png);
+}
+
+#mubox>.m4 {
+    background-image: url(../images/mu4.png);
+}
+
+#mubox>.m5 {
+    background-image: url(../images/mu5.png);
+}
+
+#mubox>.m6 {
+    background-image: url(../images/mu6.png);
+}
+
+#mubox>.m7 {
+    background-image: url(../images/mu9.png);
+}
+
+@media screen and (max-height:750px) {
+    /**/
+    #logo {
+        width: 180px;
+        height: 134px;
+    }
+    #mubox {
+        width: 1000px;
+        height: 100px;
+        bottom: 10px;
+    }
+    #mubox>.mu,
+    #mubox>.ms,
+    #mubox>.mh {
+        height: 100px;
+    }
+    #mubox>.mh {
+        width: 85px;
+    }
+    #mubox>.mu {
+        width: 100px;
+    }
+}
+
+/* 動態 */
+
+@-webkit-keyframes inc {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes inc {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes inc {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes inc {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes inc {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
